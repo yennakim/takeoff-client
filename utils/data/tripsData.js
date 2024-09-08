@@ -1,7 +1,7 @@
 import { clientCredentials } from '../client';
 
 const getTrips = (uid) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/trips`, {
+  fetch(`${clientCredentials.databaseURL}/trip`, {
     method: 'GET',
     headers: {
       Authorization: uid,
@@ -13,7 +13,7 @@ const getTrips = (uid) => new Promise((resolve, reject) => {
 });
 
 const getSingleTrip = (id) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/trips/${id}`, {
+  fetch(`${clientCredentials.databaseURL}/trip/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const getSingleTrip = (id) => new Promise((resolve, reject) => {
 });
 
 const createTrip = (payload) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/trips`, {
+  fetch(`${clientCredentials.databaseURL}/trip`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const createTrip = (payload) => new Promise((resolve, reject) => {
 });
 
 const updateTrip = (payload) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/trips/${payload.id}`, {
+  fetch(`${clientCredentials.databaseURL}/trip/${payload.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const updateTrip = (payload) => new Promise((resolve, reject) => {
 });
 
 const deleteTrip = (id) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/trips/${id}`, {
+  fetch(`${clientCredentials.databaseURL}/trip/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -60,6 +60,32 @@ const deleteTrip = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const addTripTraveler = (tripId, payload) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/trip/${tripId}/add_traveler`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const deleteTripTraveler = (payload) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/trip/remove_traveler`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
-  getTrips, getSingleTrip, createTrip, updateTrip, deleteTrip,
+  getTrips, getSingleTrip, createTrip, updateTrip, deleteTrip, addTripTraveler, deleteTripTraveler,
 };
