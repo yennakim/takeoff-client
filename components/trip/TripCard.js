@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
 import { deleteTrip } from '../../utils/data/tripsData';
-import { useAuth } from '../../utils/context/authContext';
 
 export default function TripCard({ tripObj, onUpdate }) {
-  const { user } = useAuth();
   const deleteThisTrip = () => {
     if (window.confirm(`Delete ${tripObj.trip_name}?`)) {
       deleteTrip(tripObj.id).then(() => onUpdate());
@@ -21,16 +19,12 @@ export default function TripCard({ tripObj, onUpdate }) {
         <Link Link href={`/view/${tripObj.id}`} passHref>
           <Button variant="outline-success" className="m-2">VIEW</Button>
         </Link>
-        {user.uid === tripObj.uid && (
-        <>
-          <Link href={`/trip/edit/${tripObj.id}`} passHref>
-            <Button variant="info">EDIT</Button>
-          </Link>
-          <Button variant="danger" onClick={deleteThisTrip} className="m-2">
-            DELETE
-          </Button>
-        </>
-        )}
+        <Link href={`/trip/edit/${tripObj.id}`} passHref>
+          <Button variant="info">EDIT</Button>
+        </Link>
+        <Button variant="danger" onClick={deleteThisTrip} className="m-2">
+          DELETE
+        </Button>
       </Card.Body>
     </Card>
   );
