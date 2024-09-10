@@ -8,7 +8,7 @@ import { useAuth } from '../../utils/context/authContext';
 import { createItem, updateItem } from '../../utils/data/itemsData';
 
 const initialState = {
-  trip_id: 0,
+  trip_id: 1,
   item_name: '',
   quantity: '',
 };

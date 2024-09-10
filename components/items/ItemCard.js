@@ -31,7 +31,7 @@ ItemCard.propTypes = {
     id: PropTypes.number,
     trip_id: PropTypes.number,
     item_name: PropTypes.string,
-    quantity: PropTypes.string,
+    quantity: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
