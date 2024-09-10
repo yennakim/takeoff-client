@@ -19,7 +19,7 @@ export default function TripsPage() {
 
   return (
     <div className="text-center my-4">
-      <Link href="/trip/addTrip" passHref>
+      <Link href="/trip/add" passHref>
         <Button variant="success">Add Trip</Button>
       </Link>
       <div className="d-flex flex-wrap">
