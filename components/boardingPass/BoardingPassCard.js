@@ -20,7 +20,7 @@ export default function BoardingPassCard({ boardingPassObj, onUpdate }) {
         <Link Link href={`/boarding_pass/${boardingPassObj.id}`} passHref>
           <Button variant="outline-success" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/boarding_pass/edit/${boardingPassObj.id}`} passHref>
+        <Link href={`/boardingPass/edit/${boardingPassObj.id}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisBoardingPass} className="m-2">
