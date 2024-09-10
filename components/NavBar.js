@@ -26,7 +26,7 @@ export default function NavBar() {
             <Link passHref href="/trips">
               <Nav.Link>Trips</Nav.Link>
             </Link>
-            <Link passHref href="/boarding_pass">
+            <Link passHref href="/boardingPass">
               <Nav.Link>Boarding Pass</Nav.Link>
             </Link>
             <Link passHref href="/lodging">

@@ -8,7 +8,7 @@ import { useAuth } from '../../utils/context/authContext';
 import { createTrip, updateTrip } from '../../utils/data/tripsData';
 
 const initialState = {
-  user_id: 0,
+  user_id: 1,
   trip_name: '',
   origin: '',
   destination: '',
