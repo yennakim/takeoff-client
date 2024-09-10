@@ -19,7 +19,7 @@ export default function TripCard({ tripObj, onUpdate }) {
         <Link Link href={`/trips/${tripObj.id}`} passHref>
           <Button variant="outline-success" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/trips/edit/${tripObj.id}`} passHref>
+        <Link href={`/trip/edit/${tripObj.id}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisTrip} className="m-2">

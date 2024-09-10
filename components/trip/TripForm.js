@@ -36,7 +36,7 @@ export default function TripForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.id) {
-      updateTrip(formInput).then(() => router.push(`/trips/${obj.id}`));
+      updateTrip(formInput).then(() => router.push('/trips'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createTrip(payload).then(() => router.push('/trips'));
