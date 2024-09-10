@@ -8,9 +8,9 @@ import { useAuth } from '../../utils/context/authContext';
 import { createBoardingPass, updateBoardingPass } from '../../utils/data/boardingPassData';
 
 const initialState = {
-  trip_id: 0,
-  user_id: 0,
-  traveler_id: 0,
+  trip_id: 1,
+  user_id: 1,
+  traveler_id: 1,
   departing_from: '',
   arriving_to: '',
   airline: '',

@@ -19,7 +19,7 @@ export default function BoardingPassPage() {
 
   return (
     <div className="text-center my-4">
-      <Link href="/boarding_pass/add" passHref>
+      <Link href="/boardingPass/add" passHref>
         <Button variant="success">Add Boarding Pass</Button>
       </Link>
       <div className="d-flex flex-wrap">
