@@ -95,7 +95,7 @@ export default function TripForm({ obj }) {
         />
       </FloatingLabel>
 
-      {/* INGREDIENTS  INPUT  */}
+      {/* TRIP END DATE INPUT  */}
       <FloatingLabel controlId="floatingInput5" label="Trip End Date" className="mb-3">
         <Form.Control
           type="text"
