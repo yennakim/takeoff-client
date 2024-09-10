@@ -16,10 +16,10 @@ export default function TripCard({ tripObj, onUpdate }) {
       <Card.Body>
         {/* <Card.Img variant="top" src={tripObj.image} alt={tripObj.trip_name} style={{ height: '400px', borderRadius: '0.5rem' }} /> */}
         <p style={{ textAlign: 'center' }} className="card-text bold">{tripObj.start_date} - {tripObj.end_date}</p>
-        <Link Link href={`/view/${tripObj.id}`} passHref>
+        <Link Link href={`/trips/${tripObj.id}`} passHref>
           <Button variant="outline-success" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/trip/edit/${tripObj.id}`} passHref>
+        <Link href={`/trips/edit/${tripObj.id}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisTrip} className="m-2">
