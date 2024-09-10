@@ -14,7 +14,7 @@ export default function ItemCard({ itemObj, onUpdate }) {
     <Card className="card" style={{ width: '18rem', margin: '10px', border: '1px solid' }}>
       <Card.Title style={{ textAlign: 'center', paddingTop: '10px' }}>{itemObj.item_name}</Card.Title>
       <Card.Body>
-        <p style={{ textAlign: 'center' }} className="card-text bold">{itemObj.quantity}</p>
+        <p style={{ textAlign: 'center' }} className="card-text bold">Quantity: {itemObj.quantity}</p>
         <Link href={`/item/edit/${itemObj.id}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
