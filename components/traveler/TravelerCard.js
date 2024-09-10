@@ -12,8 +12,9 @@ export default function TravelerCard({ travelerObj, onUpdate }) {
   };
   return (
     <Card className="card" style={{ width: '18rem', margin: '10px', border: '1px solid' }}>
-      <Card.Title style={{ textAlign: 'center', paddingTop: '10px' }}>{travelerObj.image}</Card.Title>
+      <Card.Title style={{ textAlign: 'center', paddingTop: '10px' }}>{travelerObj.first_name}</Card.Title>
       <Card.Body>
+        <Card.Img variant="top" src={travelerObj.image} alt={travelerObj.first_name} style={{ height: '20rem', borderRadius: '0.5rem' }} />
         <p style={{ textAlign: 'center' }} className="card-text bold">{travelerObj.first_name} {travelerObj.last_name}</p>
         <Link href={`/traveler/edit/${travelerObj.id}`} passHref>
           <Button variant="info">EDIT</Button>
