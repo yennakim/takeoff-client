@@ -3,17 +3,17 @@ import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
 import TripCard from '../components/trip/TripCard';
-import { getTrips } from '../utils/data/tripsData';
+import { getUserTrips } from '../utils/data/tripsData';
 
 export default function TripsPage() {
   const [trips, setTrips] = useState([]);
   const { user } = useAuth();
-  const getUserTrips = () => {
-    getTrips(user.uid).then(setTrips);
+  const getMyTrips = () => {
+    getUserTrips(user.uid).then(setTrips);
   };
 
   useEffect(() => {
-    getUserTrips();
+    getMyTrips();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
@@ -24,7 +24,7 @@ export default function TripsPage() {
       </Link>
       <div className="d-flex flex-wrap">
         {trips.map((trip) => (
-          <TripCard key={trip.id} tripObj={trip} onUpdate={getUserTrips} />
+          <TripCard key={trip.id} tripObj={trip} onUpdate={getMyTrips} />
         ))}
       </div>
     </div>
