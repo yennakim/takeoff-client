@@ -24,6 +24,18 @@ const getSingleItem = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getTripItems = (tripId) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/items?trip_id=${tripId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 const createItem = (payload) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/items`, {
     method: 'POST',
@@ -61,5 +73,5 @@ const deleteItem = (id) => new Promise((resolve, reject) => {
 });
 
 export {
-  getItems, getSingleItem, createItem, updateItem, deleteItem,
+  getItems, getSingleItem, getTripItems, createItem, updateItem, deleteItem,
 };
