@@ -11,6 +11,7 @@ const initialState = {
   trip_id: 1,
   item_name: '',
   quantity: '',
+  packed: false,
 };
 
 export default function ItemForm({ obj }) {
@@ -67,6 +68,21 @@ export default function ItemForm({ obj }) {
           required
         />
       </FloatingLabel>
+
+      <Form.Check
+        className="text mb-3"
+        type="checkbox"
+        id="packed"
+        name="packed"
+        label="Packed"
+        checked={formInput.packed}
+        onChange={(e) => {
+          setFormInput((prevState) => ({
+            ...prevState,
+            packed: e.target.checked,
+          }));
+        }}
+      />
 
       {/* SUBMIT BUTTON  */}
       <Button type="submit">{obj.id ? 'Update' : 'Add'} Item</Button>
