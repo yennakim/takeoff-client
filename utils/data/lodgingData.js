@@ -12,6 +12,18 @@ const getLodgings = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getTripLodgings = (tripId) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/lodging?trip_id=${tripId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 const getSingleLodging = (id) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/lodging/${id}`, {
     method: 'GET',
@@ -61,5 +73,5 @@ const deleteLodging = (id) => new Promise((resolve, reject) => {
 });
 
 export {
-  getLodgings, getSingleLodging, createLodging, updateLodging, deleteLodging,
+  getLodgings, getTripLodgings, getSingleLodging, createLodging, updateLodging, deleteLodging,
 };

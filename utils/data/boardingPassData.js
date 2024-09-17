@@ -12,6 +12,18 @@ const getBoardingPasses = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getTripBoardingPasses = (tripId) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/boarding_pass?trip_id=${tripId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 const getSingleBoardingPass = (id) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/boarding_pass/${id}`, {
     method: 'GET',
@@ -61,5 +73,5 @@ const deleteBoardingPass = (id) => new Promise((resolve, reject) => {
 });
 
 export {
-  getBoardingPasses, getSingleBoardingPass, createBoardingPass, updateBoardingPass, deleteBoardingPass,
+  getBoardingPasses, getTripBoardingPasses, getSingleBoardingPass, createBoardingPass, updateBoardingPass, deleteBoardingPass,
 };

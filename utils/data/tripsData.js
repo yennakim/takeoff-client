@@ -93,11 +93,25 @@ const deleteTripTraveler = (payload) => new Promise((resolve, reject) => {
     },
     body: JSON.stringify(payload),
   })
-    .then((response) => response.json())
     .then((data) => resolve(data))
     .catch(reject);
 });
 
+const displayTraveler = async (payload, tripId) => {
+  try {
+    const response = await fetch(`${clientCredentials.databaseURL}/trip/${tripId}/display_travelers`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+    return await response.json();
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 export {
-  getTrips, getSingleTrip, createTrip, updateTrip, deleteTrip, addTripTraveler, deleteTripTraveler, getUserTrips,
+  getTrips, getSingleTrip, createTrip, updateTrip, deleteTrip, addTripTraveler, deleteTripTraveler, getUserTrips, displayTraveler,
 };
